@@ -23,7 +23,7 @@ import org.openjdk.jmh.runner.options.OptionsBuilder;
  */
 @Warmup(iterations = 10,time = 1)
 @Measurement(iterations = 10,time = 1)
-public class JmhTest {
+public class MapInitSizeJmhTest {
 
     static class Demo{
         int id;
@@ -38,7 +38,7 @@ public class JmhTest {
     static {
         demoList = new ArrayList<>();
         for(int i=0;i<10000;i++){
-            demoList.add(new Demo(i,"test"));
+            demoList.add(new Demo(i,"init-size-test"));
         }
     }
 
@@ -63,7 +63,7 @@ public class JmhTest {
     }
 
     public static void main(String[] args) throws RunnerException {
-        Options opt = new OptionsBuilder().include(JmhTest.class.getSimpleName()).forks(
+        Options opt = new OptionsBuilder().include(MapInitSizeJmhTest.class.getSimpleName()).forks(
             1).build();
         new Runner(opt).run();
     }
