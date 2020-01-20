@@ -34,3 +34,8 @@ build/
 ### Mac ###
 .DS_Store
 .mvn
+HEAD
+config
+description
+hooks/
+info/
